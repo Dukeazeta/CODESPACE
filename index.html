@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<!--Create a simple form with the following features 1. Takes in Name, Email address, Phone number, Gender and Password 2. A SUBMIT button. 3. On submit must highlight the empty block. 4. Error message when entering the wrong format of email ID. 5. Display a success message on successful submission-->
+
+
+<html>
+  <head>
+    <title>Week 1 Task</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+      
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      label {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      input, select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      
+      .error {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple Form</h1>
+    <form id="myForm" onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+      
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <input type="submit" value="Submit">
+    </form>
+    
+    <script>
+      function validateForm() {
+        var form = document.getElementById("myForm");
+        var name = form["name"].value;
+        var email = form["email"].value;
+        var phone = form["phone"].value;
+        var gender = form["gender"].value;
+        var password = form["password"].value;
+        
+        if (name === "" || email === "" || phone === "" || gender === "" || password === "") {
+          alert("Please fill out all fields.");
+          return false;
+        }
+        
+        if (!validateEmail(email)) {
+          alert("Please enter a valid email address.");
+          return false;
+        }
+        
+        alert("Form submitted successfully!");
+        return true;
+      }
+      
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+      
+      // Highlight empty input fields
+      var inputs = document.querySelectorAll("input, select");
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("blur", function() {
+          if (this.value === "") {
+            this.classList.add("error");
+          } else {
+            this.classList.remove
