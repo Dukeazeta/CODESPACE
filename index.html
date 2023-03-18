@@ -1,107 +1,31 @@
 <!DOCTYPE html>
-
-<!--Create a simple form with the following features 1. Takes in Name, Email address, Phone number, Gender and Password 2. A SUBMIT button. 3. On submit must highlight the empty block. 4. Error message when entering the wrong format of email ID. 5. Display a success message on successful submission-->
-
-
 <html>
   <head>
-    <title>Week 1 Task</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-      }
-      
-      h1 {
-        text-align: center;
-      }
-      
-      form {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: lightblue;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        line-height: 1.5;
-      }
-      
-      label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      
-      input, select {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-      
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      
-      input[type="submit"]:hover {
-        background-color: #3e8e41;
-      }
-      
-      .error {
-        border: 1px solid red;
-      }
-    </style>
+    <meta charset="UTF-8">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Sign Up</h1>
-    <form id="myForm" onsubmit="return validateForm()">
+ 
+    <h1>DUKENET™</h1>
+    <form>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
-      
+      <input type="text" id="name" name="name" placeholder="Enter your name">
+      <label for="email">Email address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email address">
+      <label for="phone">Phone number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
       <label for="gender">Gender:</label>
-      <select id="gender" name="gender" required>
-        <option value="">Select</option>
+      <select id="gender" name="gender">
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
       </select>
-      
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      
+      <input type="password" id="password" name="password" placeholder="Enter your password">
       <input type="submit" value="Submit">
+      <div class="error-message"></div>
+      <div class="success-message"></div>
     </form>
-    
-    <script>
-      function validateForm() {
-        var form = document.getElementById("myForm");
-        var name = form["name"].value;
-        var email = form["email"].value;
-        var phone = form["phone"].value;
-        var gender = form["gender"].value;
-        var password = form["password"].value;
-        
-        if (name === "" || email === "" || phone === "" || gender === "" || password === "") {
-          alert("Please fill out all fields.");
-          return false;
-        }
-        
-        if (!validateEmail(email)) {
-          alert("Please enter a valid email address.");
-          return false;
-        }
-        
-        alert("
+  </body>
+</html>
