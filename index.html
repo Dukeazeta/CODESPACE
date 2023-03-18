@@ -20,24 +20,28 @@
         max-width: 500px;
         margin: 0 auto;
         padding: 20px;
+        background-color: lightblue;
         border: 1px solid #ccc;
         border-radius: 5px;
+        line-height: 1.5;
       }
       
       label {
-        display: inline-block;
+        display: block;
         margin-bottom: 10px;
+        font-weight: bold;
       }
       
       input, select {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-      }
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
       
       input[type="submit"] {
         background-color: #4CAF50;
@@ -56,7 +60,7 @@
     </style>
   </head>
   <body>
-    <h1>Simple Form</h1>
+    <h1>Sign Up</h1>
     <form id="myForm" onsubmit="return validateForm()">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
@@ -100,20 +104,4 @@
           return false;
         }
         
-        alert("Form submitted successfully!");
-        return true;
-      }
-      
-      function validateEmail(email) {
-        var re = /\S+@\S+\.\S+/;
-        return re.test(email);
-      }
-      
-      // Highlight empty input fields
-      var inputs = document.querySelectorAll("input, select");
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener("blur", function() {
-          if (this.value === "") {
-            this.classList.add("error");
-          } else {
-            this.classList.remove
+        alert("
